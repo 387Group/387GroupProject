@@ -1,0 +1,83 @@
+ //initial position
+   if((ypr[1]*180/M_PI)>-5 && (ypr[1]*180/M_PI)<5 && (ypr[2]*180/M_PI)>(-5) && (ypr[2]*180/M_PI)<5){//initial
+      //middle.write(90);
+      //left.write(125);
+      //right.write(135);
+     digitalWrite(pin5, LOW);
+     digitalWrite(pin7, LOW);
+     digitalWrite(pin12, LOW);
+     digitalWrite(pin8, LOW);
+   }
+   else if(((ypr[1] * 180/M_PI)<-30 && (ypr[2] * 180/M_PI)<-40)){//up&left
+      //middle.write(160);
+      //left.write(160);
+      //right.write(160);
+         digitalWrite(pin5, HIGH);
+     digitalWrite(pin7, LOW);
+     digitalWrite(pin12, LOW);
+     digitalWrite(pin8, LOW);
+   }
+    else if((ypr[1] * 180/M_PI)<-30 && (ypr[2]*180/M_PI)>-5 && (ypr[2]*180/M_PI)<5){//up
+      //middle.write(90);
+      //left.write(160);
+      //right.write(160);
+      digitalWrite(pin5, LOW);
+     digitalWrite(pin7, HIGH);
+     digitalWrite(pin12, LOW);
+     digitalWrite(pin8, LOW);
+   }
+    else if((ypr[1] * 180/M_PI)<-30 && (ypr[2] * 180/M_PI)>20){//up right
+      //middle.write(20);
+      //left.write(160);
+      //right.write(160);
+      digitalWrite(pin5, HIGH);
+     digitalWrite(pin7, HIGH);
+     digitalWrite(pin12, LOW);
+     digitalWrite(pin8, LOW);
+   }
+   else  if((ypr[1] * 180/M_PI)>-5&&(ypr[1] * 180/M_PI)<5&&(ypr[2] * 180/M_PI)<-40){//left
+      //middle.write(160);
+      //left.write(125);
+      //right.write(135);
+     digitalWrite(pin5, LOW);
+     digitalWrite(pin7, LOW);
+     digitalWrite(pin12, HIGH);
+     digitalWrite(pin8, LOW);
+   }
+   else if((ypr[1] * 180/M_PI)>-5&&(ypr[1] * 180/M_PI)<5&&(ypr[2] * 180/M_PI)>20){//right
+      //middle.write(20);
+      //left.write(125);
+      //right.write(135);
+     digitalWrite(pin5, HIGH);
+     digitalWrite(pin7, LOW);
+     digitalWrite(pin12, HIGH);
+     digitalWrite(pin8, LOW);
+   }
+   else if((ypr[1] * 180/M_PI)>30 && (ypr[2] * 180/M_PI)<-40){//down&left
+      //middle.write(160);
+      //left.write(90);
+      //right.write(115);
+      digitalWrite(pin5, LOW);
+     digitalWrite(pin7, HIGH);
+     digitalWrite(pin12, HIGH);
+     digitalWrite(pin8, LOW);
+   }
+    else if((ypr[1] * 180/M_PI)>30 && (ypr[2]*180/M_PI)>-5 && (ypr[2]*180/M_PI)<5){//down
+      //middle.write(90);
+      //left.write(90);
+      //right.write(115);
+     digitalWrite(pin5, HIGH);
+     digitalWrite(pin7, HIGH);
+     digitalWrite(pin12, HIGH);
+     digitalWrite(pin8, LOW);
+   }
+    else if((ypr[1] * 180/M_PI)>30 && (ypr[2] * 180/M_PI)>20){//down right
+      //middle.write(20);
+      //left.write(90);
+      //right.write(115);
+     digitalWrite(pin5, LOW);
+     digitalWrite(pin7, LOW);
+     digitalWrite(pin12, LOW);
+     digitalWrite(pin8, HIGH);
+    }
+            
