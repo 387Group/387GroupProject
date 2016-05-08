@@ -1,0 +1,123 @@
+//////////////////////////////////////////////////////////////
+//Bluetooth_Receiver_final                                  //
+//Contributed by Juliano Eloi                               //
+//////////////////////////////////////////////////////////////
+
+void receiveMsg(){  
+  for(int i = 0; i < 10; i++){
+    if (Serial.available() > 0) {
+      // read the incoming byte:
+      incomingByte = Serial.read();
+      if(incomingByte == '0'){//initial
+          middle1.write(90);
+          left.write(125);
+          right.write(135);
+      }
+      else if(incomingByte == '1'){//up&left
+          middle1.write(160);
+          left.write(160);
+          right.write(160);
+      }
+      else if(incomingByte == '2'){//up
+          middle1.write(90);
+          left.write(160);
+          right.write(160);
+      }
+      else if(incomingByte == '3'){//up right
+          middle1.write(20);
+          left.write(160);
+          right.write(160);   
+      }
+      else if(incomingByte == '4'){//left
+          middle1.write(160);
+          left.write(125);
+          right.write(135);
+      }
+      else if(incomingByte == '5'){//right
+          middle1.write(20);
+          left.write(125);
+          right.write(135);
+      }
+      else if(incomingByte == '6'){//down&left
+          middle1.write(160);
+          left.write(90);
+          right.write(115);
+      }
+      else if(incomingByte == '7'){//down
+          middle1.write(90);
+          left.write(90);
+          right.write(115);
+      }
+      else if(incomingByte == '8'){//down right
+          middle1.write(20);
+          left.write(90);
+          right.write(115);
+       }
+    }
+    
+//////////////////////////////////////////////////////////////
+//Bluetooth_Transmitter_final                               //
+//Contributed by Juliano Eloi                               //
+//////////////////////////////////////////////////////////////    
+
+int message=0;
+int a=0;
+int b=0;
+int c=0;
+int d=0;
+    
+void sendMsg(int msg){
+ // digitalWrite(lightG,LOW);  
+  delay(50);  
+  Serial.print(msg);
+ // digitalWrite(lightG,HIGH);
+  delay(50);  
+  Serial.print(msg);
+ // digitalWrite(lightG,LOW);  
+  delay(50); 
+ // digitalWrite(lightG,HIGH);
+  Serial.print(msg);
+}
+
+void loop() 
+{
+  a=digitalRead(pin5);
+  b=digitalRead(pin7);
+  c=digitalRead(pin12);
+  d=digitalRead(pin8);
+  if((a==0) && (b==0) && (c==0) && (d==0)){
+     message=0;
+  }
+  else if((a==1) && (b==0) && (c==0) && (d==0)){
+     message=1;
+  }
+  else if((a==0) && (b==1) && (c==0) && (d==0)){
+     message=2;
+  }
+  else if((a==1) && (b==1) && (c==0) && (d==0)){
+     message=3;
+  }
+  else if((a==0) && (b==0) && (c==1) && (d==0)){
+     message=4;
+  }
+  else if((a==1) && (b==0) && (c==1) && (d==0)){
+     message=5;
+  }
+  else if((a==0) && (b==1) && (c==1) && (d==0)){
+     message=6;
+  }
+  else if((a==1) && (b==1) && (c==1) && (d==0)){
+     message=7;
+  }
+  else if((a==0) && (b==0) && (c==0) && (d==1)){
+     message=8;
+  }  
+  if(msgToken == 1){
+    //digitalWrite(lightG,HIGH);
+    sendMsg(message);
+    delay(1000);
+  }else{
+    //digitalWrite(lightB,HIGH);
+    receiveMsg();
+  }
+}
