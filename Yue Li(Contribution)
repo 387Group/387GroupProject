@@ -1,0 +1,55 @@
+void receiveMsg(){  
+  for(int i = 0; i < 10; i++){
+    if (Serial.available() > 0) {
+      // read the incoming byte:
+      incomingByte = Serial.read();
+      if(incomingByte == '0'){//initial
+          middle1.write(90);
+          left.write(125);
+          right.write(135);
+      }
+      else if(incomingByte == '1'){//up&left
+          middle1.write(160);
+          left.write(160);
+          right.write(160);
+      }
+      else if(incomingByte == '2'){//up
+          middle1.write(90);
+          left.write(160);
+          right.write(160);
+      }
+      else if(incomingByte == '3'){//up right
+          middle1.write(20);
+          left.write(160);
+          right.write(160);   
+      }
+      else if(incomingByte == '4'){//left
+          middle1.write(160);
+          left.write(125);
+          right.write(135);
+      }
+      else if(incomingByte == '5'){//right
+          middle1.write(20);
+          left.write(125);
+          right.write(135);
+      }
+      else if(incomingByte == '6'){//down&left
+          middle1.write(160);
+          left.write(90);
+          right.write(115);
+      }
+      else if(incomingByte == '7'){//down
+          middle1.write(90);
+          left.write(90);
+          right.write(115);
+      }
+      else if(incomingByte == '8'){//down right
+          middle1.write(20);
+          left.write(90);
+          right.write(115);
+       }
+    }
+    
+    delay(100);
+  }
+}
