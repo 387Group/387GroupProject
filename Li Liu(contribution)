@@ -1,4 +1,6 @@
-//Transmitter part(work with Juliano Eloi)
+////////////////////////////////////////
+Transmitter part(work with Juliano Eloi)
+////////////////////////////////////////
 int pin5=5;
 int pin7=7;
 int pin8=8;
